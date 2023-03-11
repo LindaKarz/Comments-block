@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
         comments.push(comment);
         saveComments();
         showComments();
+        removeComments();
+        addLike();
       }
 
       function saveComments() {
@@ -59,6 +61,24 @@ document.addEventListener('DOMContentLoaded', function() {
           out += `<p class="comment__content">Comment: <br>${item.content}</p>`;
         });
         div.innerHTML = out;
+      }
+
+      function removeComments() {
+        let deleteButton = document.querySelectorAll('.remove');
+        for (let item of deleteButton){
+          item.onclick = function() {
+            item.parentElement.remove();
+          };
+        }
+      }
+
+      function addLike() {
+        let likeButton = document.querySelectorAll('.like');
+        for (let item of likeButton) {
+          item.onclick = function() {
+            item.classList.toggle('active')
+          }
+        }
       }
     } 
   }
