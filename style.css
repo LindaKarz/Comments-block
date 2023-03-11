@@ -34,9 +34,22 @@ h1 {
 h2 {
   font-size: 3.2rem;
   line-height: 4.27rem;
+  text-align: center;
 }
 
-.header {
+p {
+  display: block;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  text-align: center;
+}
+
+span {
+  display: block;
+  margin: 10px;
+}
+
+.header, .previous-comments {
   background-color: aliceblue;
 }
 
@@ -105,4 +118,65 @@ h2 {
 
 .error .error-message {
   display: block;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.comment {
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  max-height: 300px;
+  overflow: auto;
+  border-radius: 5px;
+}
+
+.comment >* {
+  padding: 5px 0;
+}
+
+.comment__date, .comment__time {
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #61605d;
+  padding: 3px 0;
+}
+
+.comment__user-name {
+  font-weight: 700;
+}
+
+.comment__content {
+  inline-size: 320px;
+  overflow-wrap: break-word;
+}
+
+.remove {
+  width: 26px;
+  height: 26px;
+  background: url(img/delete.svg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.like {
+  width: 26px;
+  height: 26px;
+  background: url(img/fauvorite-icon.svg) no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.like.active {
+  background: url(img/likeactive.svg) no-repeat;
+  background-position: center;
+  background-size: contain;
 }

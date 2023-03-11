@@ -18,23 +18,28 @@
         <form action="#" method="get" class="comment-form" id="form">
           <h2 class="comment-form__title">Your Comment</h2>
           <div>
-            <input class="input user-name req" type="text" name="username" value="" placeholder="Username*" tabindex="1">
+            <input class="input user-name req" id="user-name" type="text" name="username" value="" placeholder="Username*" tabindex="1">
             <div class="error-message">Please fill out this field</div>
           </div>
           <div>
-            <textarea class="input comment-text req" name="comment" placeholder="Your comment*" tabindex="2"></textarea>
+            <textarea class="input comment-text req" id="comment-text" name="comment" placeholder="Please write your comment*" tabindex="2"></textarea>
             <div class="error-message">Please fill out this field</div>
           </div>
           <div>
-            <input class="input input_date" type="date" tabindex="3">
+            <input class="input input_date" id="date" type="date" tabindex="3">
           </div>
-          <button class="button" type="submit" tabindex="4">Submit</button>
+          <button class="button" id="button" type="submit" tabindex="4">Submit</button>
         </form>
       </section>
-      <section class="comment-list">
-
+      <section class="previous-comments">
+        <div class="wrapper">
+          <h2 class="comment-form__title">Previous comments</h2>
+          <div class="comment-list layout-3-column" id="comments">
+          </div>
+        </div>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script src="error.js"></script>
+
   </body>
   </html>
