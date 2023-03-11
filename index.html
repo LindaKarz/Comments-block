@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comments block</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
+    <header class="header">
+      <div class="wrapper">
+        <h1 class="h1">Comments</h1>
+      </div>
+    </header>
+    <main>
+      <section class="wrapper">
+        <form action="#" method="get" class="comment-form">
+          <h2 class="comment-form__title">Your Comment</h2>
+          <div class="user-name">
+            <input class="input" type="text" name="username" value="" placeholder="Username*" tabindex="1">
+          </div>
+          <div>
+            <textarea class="comment-text" name="comment" placeholder="Your comment*" tabindex="2"></textarea>
+          </div>
+          <div>
+            <input class="input input_date" type="date" tabindex="3">
+          </div>
+          <button class="button" type="submit" tabindex="4">Submit</button>
+        </form>
+      </section>
+      <section class="comment-list">
+
+      </section>
+    </main>
   </body>
   </html>

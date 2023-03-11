@@ -1,0 +1,97 @@
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  font-style: normal;
+  color: #1B1A17;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 6rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.2rem;
+  line-height: 4.27rem;
+}
+
+.header {
+  background-color: aliceblue;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.comment-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.comment-form >* {
+  padding: 10px 0;
+}
+
+.input, .comment-text {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 10px;
+  border: 1px #1B1A17 solid;
+  border-radius: 5px;
+}
+
+.input {
+  height: 40px;
+}
+
+.comment-text {
+  min-height: 200px;
+  resize: vertical;
+}
+
+.input_date {
+  cursor: pointer;
+}
+
+.button {
+  width: 160px;
+  height: 45px;
+  background-color: aliceblue;
+  border: 1px solid;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(173, 213, 247);
+  transition: transform 0.5s;
+}
