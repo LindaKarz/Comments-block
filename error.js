@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (input.value === '') {
           formAddError(input);
           error++;
-        }
+        } 
       } else if (input.classList.contains('comment-text')) {
         if (input.value === '') {
           formAddError(input);
