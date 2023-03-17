@@ -1,7 +1,7 @@
 "use strict"
 let comments = [];
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   const form = document.getElementById('form');
   form.addEventListener('submit', formSend);
   
@@ -11,24 +11,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (error === 0) {
       let comments = [];
-      document.getElementById('button').onclick = function displayComment() {
-        e.preventDefault();
+      document.getElementById('button').onclick = async function displayComment() {
         let userName = document.getElementById('user-name');
         let commentText = document.getElementById('comment-text');
         let commentDate = document.getElementById('date').value;
-
+        
         if (commentDate == '') commentDate = Date.now();
-
+        
         let date = new Date(commentDate).toISOString().substring(0,10);
         let time = new Date(commentDate).toISOString().substring(11, 19);
-        
+
+        let nowDate = new Date;
+        if (Number(date[8]+date[9]) == nowDate.getDate()) date = "today";
+        if (Number(date[8]+date[9]) == (nowDate.getDate() - 1)) date = "yesterday", time = `${nowDate.getHours()}:${nowDate.getMinutes()}`;
+
         let comment = {
           name: userName.value,
           content: commentText.value,
           date: date,
           time: time,
         }
-
+      
         comments.push(comment);
         saveComments();
         showComments();
@@ -38,11 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function saveComments() {
         localStorage.setItem('comments', JSON.stringify(comments));
-      }
-
-      function loadComment() {
-        if (localStorage.getItem('comments')) comments = JSON.parse(localStorage.getItem('comments'));
-        showComments();
       }
 
       function showComments() {
@@ -115,5 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
     input.parentElement.classList.remove('error');
     input.classList.remove('error');
   }
+
 })
 
