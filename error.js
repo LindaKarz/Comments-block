@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     e.preventDefault();
     let error = formValidate(form);
 
+    deleteError();
     if (error === 0) {
       let comments = [];
       document.getElementById('button').onclick = async function displayComment() {
@@ -87,7 +88,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     for (let i = 0; i < formReq.length; i++) {
       const input = formReq[i];
-      formRemoveError(input);
 
       if (input.classList.contains('user-name')) {
         if (input.value === '') {
@@ -109,9 +109,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     input.classList.add('error');
   }
 
-  function formRemoveError(input) {
-    input.parentElement.classList.remove('error');
-    input.classList.remove('error');
+  function deleteError() {
+    let formReq = document.querySelectorAll('.req');
+    for (let item of formReq) {
+      item.addEventListener('click', () => {
+        item.classList.remove('error');
+        item.parentElement.classList.remove('error');
+      })
+    }
   }
 
 })
