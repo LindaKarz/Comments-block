@@ -5,43 +5,44 @@ document.addEventListener('DOMContentLoaded', async function() {
   const form = document.getElementById('form');
   form.addEventListener('submit', formSend);
   
-  async function formSend(e) {
+  function formSend(e) {
     e.preventDefault();
+
     let error = formValidate(form);
 
     deleteError();
+
     if (error === 0) {
       let comments = [];
-      document.getElementById('button').onclick = async function displayComment() {
-        let userName = document.getElementById('user-name');
-        let commentText = document.getElementById('comment-text');
-        let commentDate = document.getElementById('date').value;
+      let userName = document.getElementById('user-name');
+      let commentText = document.getElementById('comment-text');
+      let commentDate = document.getElementById('date').value;
         
-        if (commentDate == '') commentDate = Date.now();
+      if (commentDate == '') commentDate = Date.now();
         
-        let date = new Date(commentDate).toISOString().substring(0,10);
-        let time = new Date(commentDate).toISOString().substring(11, 19);
+      let date = new Date(commentDate).toISOString().substring(0,10);
+      let time = new Date(commentDate).toISOString().substring(11, 19);
 
-        let nowDate = new Date;
-        if (Number(date[8]+date[9]) == nowDate.getDate()) date = "today";
-        if (Number(date[8]+date[9]) == (nowDate.getDate() - 1)) date = "yesterday", time = `${nowDate.getHours()}:${nowDate.getMinutes()}`;
+      let nowDate = new Date;
+      if (Number(date[8]+date[9]) == nowDate.getDate()) date = "today";
+      if (Number(date[8]+date[9]) == (nowDate.getDate() - 1)) date = "yesterday", time = `${nowDate.getHours()}:${nowDate.getMinutes()}`;
 
-        let comment = {
-          name: userName.value,
-          content: commentText.value,
-          date: date,
-          time: time,
-        }
-      
-        comments.push(comment);
-        saveComments();
-        showComments();
-        removeComments();
-        addLike();
+      let comment = {
+        name: userName.value,
+        content: commentText.value,
+        date: date,
+        time: time,
       }
+      
+      comments.push(comment);
+      saveComments();
+      showComments();
+      removeComments();
+      addLike();
+
 
       function saveComments() {
-        localStorage.setItem('comments', JSON.stringify(comments));
+      localStorage.setItem('comments', JSON.stringify(comments));
       }
 
       function showComments() {
@@ -61,25 +62,25 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
         div.innerHTML = out;
       }
-
-      function removeComments() {
-        let deleteButton = document.querySelectorAll('.remove');
-        for (let item of deleteButton){
-          item.onclick = function() {
-            item.parentElement.remove();
-          };
-        }
-      }
-
-      function addLike() {
-        let likeButton = document.querySelectorAll('.like');
-        for (let item of likeButton) {
-          item.onclick = function() {
-            item.classList.toggle('active')
-          }
-        }
-      }
     } 
+  }
+
+  function removeComments() {
+    let deleteButton = document.querySelectorAll('.remove');
+    for (let item of deleteButton){
+      item.onclick = function() {
+        item.parentElement.remove();
+      };
+    }
+  }
+
+  function addLike() {
+    let likeButton = document.querySelectorAll('.like');
+    for (let item of likeButton) {
+      item.onclick = function() {
+        item.classList.toggle('active')
+      }
+    }
   }
 
   function formValidate(form) {
@@ -118,6 +119,5 @@ document.addEventListener('DOMContentLoaded', async function() {
       })
     }
   }
-
 })
 
